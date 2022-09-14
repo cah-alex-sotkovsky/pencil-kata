@@ -1,6 +1,7 @@
 public class Pencil {
 
     public void write(Paper paper, String textToWrite) {
-        paper.setText(textToWrite);
+        String currentText = paper.getText();
+        paper.setText(currentText + textToWrite);
     }
 }

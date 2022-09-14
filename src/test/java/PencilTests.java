@@ -21,4 +21,12 @@ public class PencilTests {
         assertNotEquals("Goodbye", paper.getText());
     }
 
+    @Test
+    public void writingMultipleTimesAppendsText(){
+        String expectedResult = "Hello world!";
+        pencil.write(paper,"Hello");
+        pencil.write(paper," world!");
+        assertEquals(expectedResult, paper.getText());
+    }
+
 }
