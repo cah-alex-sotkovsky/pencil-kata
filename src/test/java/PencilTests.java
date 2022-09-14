@@ -9,7 +9,7 @@ public class PencilTests {
 
     @BeforeEach
     public void setUp(){
-        pencil = new Pencil(100);
+        pencil = new Pencil(100, 100, 10);
         paper = new Paper();
     }
 
@@ -44,6 +44,13 @@ public class PencilTests {
         pencil.write(paper, "My name is Alex");
         assertEquals(expectedResult, paper.getText());
 
+    }
+
+    @Test
+    public void sharpenRestoresMaxDurability(){
+        pencil.setDurability(10);
+        pencil.sharpen();
+        assertEquals(100,pencil.getDurability());
     }
 
 }
