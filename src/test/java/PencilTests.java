@@ -53,4 +53,12 @@ public class PencilTests {
         assertEquals(100,pencil.getDurability());
     }
 
+    @Test
+    public void sharpenFailsIfLengthInadequate(){
+        pencil.setDurability(10);
+        pencil.setLength(0);
+        pencil.sharpen();
+        assertEquals(10, pencil.getDurability());
+    }
+
 }
