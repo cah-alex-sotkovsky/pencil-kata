@@ -10,7 +10,4 @@ public class Paper {
         this.text = text;
     }
 
-    public void write(String textToWrite) {
-        text += textToWrite;
-    }
 }
