@@ -4,6 +4,14 @@ public class Pencil {
 
     private int durability;
 
+    public int getDurability() {
+        return durability;
+    }
+
+    public void setDurability(int durability) {
+        this.durability = durability;
+    }
+
     // Default constructor
     public Pencil (){
 
@@ -22,16 +30,14 @@ public class Pencil {
 
             String currentText = paper.getText();
 
-            if (isWhitespace(character)) {
-                paper.setText(currentText + " ");
-            } else if (isUpperCase(character) && (durability > 2)) {
+           if (isUpperCase(character) && (durability >= 2)) {
                 paper.setText(currentText + Character.toString(character));
                 durability -= 2;
-            } else if (isLowerCase(character) && (durability > 1)) {
+            } else if (isLowerCase(character) && (durability >= 1)) {
                 paper.setText(currentText + Character.toString(character));
                 durability -= 1;
-            }
-            
+            } else {paper.setText(currentText + " ");}
+
         }
     }
 

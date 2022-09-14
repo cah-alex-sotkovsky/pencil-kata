@@ -25,7 +25,7 @@ public class PencilTests {
     public void writingMultipleTimesAppendsText(){
         String expectedResult = "Hello world";
         pencil.write(paper,"Hello");
-        pencil.write(paper," world!");
+        pencil.write(paper," world");
         assertEquals(expectedResult, paper.getText());
     }
 
@@ -34,6 +34,16 @@ public class PencilTests {
         String expectedResult = "Hello";
         pencil.write(paper, "Hello");
         assertEquals(expectedResult, paper.getText());
+    }
+
+    @Test
+    public void writingWithoutDurabilityWritesWhitespace(){
+        // Setting durability to lower number to simulate worn down pencil
+        pencil.setDurability(9);
+        String expectedResult = "My name is     ";
+        pencil.write(paper, "My name is Alex");
+        assertEquals(expectedResult, paper.getText());
+
     }
 
 }
