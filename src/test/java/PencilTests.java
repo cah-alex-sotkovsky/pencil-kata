@@ -9,7 +9,7 @@ public class PencilTests {
 
     @BeforeEach
     public void setUp(){
-        pencil = new Pencil();
+        pencil = new Pencil(100);
         paper = new Paper();
     }
 
@@ -23,9 +23,16 @@ public class PencilTests {
 
     @Test
     public void writingMultipleTimesAppendsText(){
-        String expectedResult = "Hello world!";
+        String expectedResult = "Hello world";
         pencil.write(paper,"Hello");
         pencil.write(paper," world!");
+        assertEquals(expectedResult, paper.getText());
+    }
+
+    @Test
+    public void writingWithDurabilityWrites(){
+        String expectedResult = "Hello";
+        pencil.write(paper, "Hello");
         assertEquals(expectedResult, paper.getText());
     }
 
