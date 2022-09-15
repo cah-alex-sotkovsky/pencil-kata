@@ -75,12 +75,23 @@ public class EraserTests {
   assertEquals(expectedResult, paper.getText());
  }
 
- @Test void eraseWithDurabilityErases(){
+ @Test
+ public void eraseWithDurabilityErases(){
   pencil.write(paper, "Hello world");
   eraser.erase(paper, "Hello");
- String expectedReuslt = "      world";
- assertEquals(expectedReuslt, paper.getText());
+ String expectedResult = "      world";
+ assertEquals(expectedResult, paper.getText());
  }
+
+ @Test
+ public void eraseWithInsufficientDurabilityPartiallyErases(){
+  eraser.setDurability(3);
+  pencil.write(paper, "Goodbye");
+  eraser.erase(paper, "Goodbye");
+  String expectedResult = "Good   ";
+  assertEquals(expectedResult, paper.getText());
+ }
+
  }
 
 

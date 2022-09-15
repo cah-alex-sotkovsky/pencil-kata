@@ -14,14 +14,6 @@ public class Pencil {
         this.durability = durability;
     }
 
-    public int getMaxDurability() {
-        return maxDurability;
-    }
-
-    public void setMaxDurability(int maxDurability) {
-        this.maxDurability = maxDurability;
-    }
-
     public void setLength(int length) {
         this.length = length;
     }
