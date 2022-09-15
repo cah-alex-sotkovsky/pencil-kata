@@ -17,11 +17,18 @@ public class EraserTests {
  }
 
  @Test
- public void eraseReplacesTextWithSpaces(){
+ public void eraseReplacesStringAtEndOfTextWithSpaces(){
   pencil.write(paper, "Hello world");
   eraser.erase(paper,"world");
   String expectedResult = "Hello      ";
   assertEquals(expectedResult, paper.getText());
  }
 
+ @Test
+ public void eraseReplacesStringInMiddleOfTextWithSpaces(){
+  pencil.write(paper, "My name is Alex");
+  eraser.erase(paper, "name is");
+  String expectedResult = "My         Alex";
+  assertEquals(expectedResult, paper.getText());
+ }
 }
