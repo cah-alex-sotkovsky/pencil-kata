@@ -48,4 +48,15 @@ public class EraserTests {
  assertEquals(expectedResult, paper.getText());
  }
 
-}
+ @Test
+ public void eraseMultipleTimesRemovesAdditionalInstancesOfString(){
+  pencil.write(paper, "Hello Hello");
+  eraser.erase(paper, "Hello");
+  eraser.erase(paper, "Hello");
+  String expectedResult = "           ";
+  assertEquals(expectedResult, paper.getText());
+ }
+ 
+ }
+
+
