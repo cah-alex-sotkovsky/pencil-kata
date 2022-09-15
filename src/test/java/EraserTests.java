@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class EraserTests {
 
@@ -11,7 +12,7 @@ public class EraserTests {
 
  @BeforeEach
  public void setUp(){
-  eraser = new Eraser();
+  eraser = new Eraser(100);
   pencil = new Pencil(100,100,10);
   paper = new Paper();
  }
@@ -61,6 +62,15 @@ public class EraserTests {
  public void eraseDoesNothingWhenNoInstanceOfStringExists(){
   pencil.write(paper, "Hello world");
   eraser.erase(paper, "Goodbye");
+  String expectedResult = "Hello world";
+  assertEquals(expectedResult, paper.getText());
+ }
+
+ @Test
+ public void eraseWithoutDurabilityDoesNotErase(){
+  eraser.setDurability(0);
+  pencil.write(paper, "Hello world");
+  eraser.erase(paper,"Hello");
   String expectedResult = "Hello world";
   assertEquals(expectedResult, paper.getText());
  }

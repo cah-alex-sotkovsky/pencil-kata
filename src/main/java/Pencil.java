@@ -26,12 +26,8 @@ public class Pencil {
         this.length = length;
     }
 
-    // Default constructor
-    public Pencil() {
 
-    }
-
-    // Constructor where pencil durability and maxDurability is specified
+    // Constructor where pencil durability, maxDurability and length is specified
     public Pencil(int durability, int maxDurability, int length) {
         this.durability = durability;
         this.maxDurability = maxDurability;
