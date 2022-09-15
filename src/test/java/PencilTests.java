@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class PencilTests {
-    Pencil pencil;
-    Paper paper;
+    private Pencil pencil;
+    private Paper paper;
 
     @BeforeEach
     public void setUp(){
@@ -43,7 +43,6 @@ public class PencilTests {
         String expectedResult = "My name is     ";
         pencil.write(paper, "My name is Alex");
         assertEquals(expectedResult, paper.getText());
-
     }
 
     @Test

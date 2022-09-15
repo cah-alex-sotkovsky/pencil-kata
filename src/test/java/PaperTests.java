@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PaperTests {
 
-   Paper paper;
+   private Paper paper;
 
    @BeforeEach
     public void setUp(){
