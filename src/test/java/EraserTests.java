@@ -50,13 +50,21 @@ public class EraserTests {
 
  @Test
  public void eraseMultipleTimesRemovesAdditionalInstancesOfString(){
-  pencil.write(paper, "Hello Hello");
+  pencil.write(paper, "Hello Hello Hello");
   eraser.erase(paper, "Hello");
   eraser.erase(paper, "Hello");
-  String expectedResult = "           ";
+  String expectedResult = "Hello            ";
   assertEquals(expectedResult, paper.getText());
  }
- 
+
+ @Test
+ public void eraseDoesNothingWhenNoInstanceOfStringExists(){
+  pencil.write(paper, "Hello world");
+  eraser.erase(paper, "Goodbye");
+  String expectedResult = "Hello world";
+  assertEquals(expectedResult, paper.getText());
+ }
+
  }
 
 
