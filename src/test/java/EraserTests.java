@@ -31,4 +31,14 @@ public class EraserTests {
   String expectedResult = "My         Alex";
   assertEquals(expectedResult, paper.getText());
  }
+
+ @Test
+ public void eraseReplacesStringAtBeginningOfTextWithSpaces(){
+  pencil.write(paper, "My name is Alex");
+  eraser.erase(paper, "My");
+  String expectedResult = "   name is Alex";
+  assertEquals(expectedResult, paper.getText());
+
+ }
+
 }
