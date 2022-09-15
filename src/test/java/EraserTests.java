@@ -38,7 +38,14 @@ public class EraserTests {
   eraser.erase(paper, "My");
   String expectedResult = "   name is Alex";
   assertEquals(expectedResult, paper.getText());
+ }
 
+ @Test
+ public void eraseReplacesOnlyLastInstanceOfString(){
+  pencil.write(paper, "Hello Hello");
+  eraser.erase(paper, "Hello");
+ String expectedResult = "Hello      ";
+ assertEquals(expectedResult, paper.getText());
  }
 
 }
