@@ -130,6 +130,13 @@ public class PencilTests {
         assertEquals(99, pencil.getDurability());
     }
 
+    @Test
+    public void editingNumberCharReducesDurabilityByOne(){
+        paper.setText("Number is:  ");
+        pencil.edit(paper, 10, "1");
+        assertEquals(99, pencil.getDurability());
+    }
+
 
 
 
