@@ -68,4 +68,12 @@ public class PencilTests {
     assertEquals(expectedResult, paper.getText());
     }
 
+    @Test
+    public void editReplacesTextWithAtSymbol(){
+    paper.setText("Hello my name is      Sotkovsky");
+    pencil.edit(paper,17,"Alexandra");
+    String expectedResult = "Hello my name is Alexa@@@@ovsky";
+    assertEquals(expectedResult, paper.getText());
+    }
+
 }
