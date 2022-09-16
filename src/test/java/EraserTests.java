@@ -113,6 +113,12 @@ public class EraserTests {
   eraser.erase(paper,"A");
   assertEquals(99, eraser.getDurability());
  }
+@Test
+ public void erasingLowercaseCharReducesDurabilityByOne(){
+  paper.setText("a");
+  eraser.erase(paper,"a");
+  assertEquals(99, eraser.getDurability());
+ }
 
  }
 
