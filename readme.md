@@ -72,7 +72,7 @@ Existing text on the page cannot 'shift' to make room for new text.  If the new 
 
 ## Some questions I would have for a product owner:
 1. Does writing punctuation or special characters cost pencil durability?
-        - As it stands, they do not
+        - As it stands, special chars reduce pencil durability by one
 2. Does erasing punctuation or special characters cost eraser durability?
         - As it stands, special chars reduce eraser durability by one
 3. What is the desired behavior if you want to edit whitespace at the end of the paper's text?

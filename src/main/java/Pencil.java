@@ -86,13 +86,20 @@ public class Pencil {
                         paperTextChars[i] = replacementTextChars[counter];
                         durability -= 1;
                         counter++;
-                    } else {
+                    } else if (Character.isWhitespace(replacementTextChars[counter])){
                         paperTextChars[i] = replacementTextChars[counter];
+                        counter ++;
+                    }
+
+                    else {
+                        paperTextChars[i] = replacementTextChars[counter];
+                        durability -= 1;
                         counter++;
                     }
-                    // If not whitespace, pencil will write @ symbol with no impact to pencil durability
+                    // If not whitespace, pencil will write @ symbol
                 } else {
                     paperTextChars[i] = '@';
+                    durability -= 1;
                     counter++;
                 }
                 paper.setText(String.valueOf(paperTextChars));

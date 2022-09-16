@@ -109,6 +109,12 @@ public class PencilTests {
         assertEquals(expectedResult, paper.getText());
     }
 
+    @Test public void editingUppercaseCharReducesDurabilityByTwo(){
+        paper.setText("Uppercase letter is:  ");
+        pencil.edit(paper, 20, "A");
+        assertEquals(98, pencil.getDurability());
+    }
+
 
 
 
