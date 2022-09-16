@@ -6,6 +6,10 @@ public class Eraser {
         this.durability = durability;
     }
 
+    public int getDurability() {
+        return durability;
+    }
+
     public Eraser(int durability) {
         this.durability = durability;
     }

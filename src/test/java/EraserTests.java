@@ -100,6 +100,18 @@ public class EraserTests {
   assertEquals(expectedResult, paper.getText());
  }
 
+ @Test
+ public void erasingSpecialCharsReducesDurability(){
+  paper.setText(".!");
+  eraser.erase(paper,".!");
+  assertEquals(98, eraser.getDurability());
+ }
+
+ @Test
+ public void erasingUppercaseCharReducesDurabilityByOne(){
+  paper.setText("A");
+  eraser.erase(paper,"A");
+  assertEquals(99, eraser.getDurability());
  }
 
  }
