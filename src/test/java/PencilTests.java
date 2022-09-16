@@ -51,11 +51,11 @@ public class PencilTests {
     }
 
     @Test
-    public void writingSpecialCharsDoesNotImpactDurability(){
+    public void writingSpecialCharsReducesDurabilityByOne(){
         pencil.write(paper,",");
         String expectedResult = ",";
         assertEquals(expectedResult, paper.getText());
-        assertEquals(100, pencil.getDurability());
+        assertEquals(99, pencil.getDurability());
     }
 
     @Test

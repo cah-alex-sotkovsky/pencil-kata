@@ -34,14 +34,22 @@ public class Pencil {
 
             String currentText = paper.getText();
 
-            if (isUpperCase(character) && (durability >= 2)) {
+            if (isUpperCase(character)) {
+                if (durability >= 2){
                 paper.setText(currentText + Character.toString(character));
-                durability -= 2;
-            } else if (isLowerCase(character) && (durability >= 1)) {
+                durability -= 2;}
+                else {paper.setText(currentText + " ");}
+            } else if (isLowerCase(character)) {
+                if (durability >= 1){
+                paper.setText(currentText + Character.toString(character));
+                durability -= 1;}
+                else {paper.setText(currentText + " ");}
+            } else if (Character.isWhitespace(character)){
+                paper.setText(currentText + " ");
+            }
+            else {
                 paper.setText(currentText + Character.toString(character));
                 durability -= 1;
-            } else {
-                paper.setText(currentText + Character.toString(character));
             }
 
         }
