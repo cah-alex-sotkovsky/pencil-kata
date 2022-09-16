@@ -92,6 +92,16 @@ public class EraserTests {
   assertEquals(expectedResult, paper.getText());
  }
 
+ @Test
+ public void erasingSpecialCharsFunctions(){
+  paper.setText(".!");
+  eraser.erase(paper,".!");
+  String expectedResult = "  ";
+  assertEquals(expectedResult, paper.getText());
+ }
+
+ }
+
  }
 
 

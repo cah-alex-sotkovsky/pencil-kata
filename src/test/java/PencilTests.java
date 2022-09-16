@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class PencilTests {
     private Pencil pencil;
@@ -18,7 +17,6 @@ public class PencilTests {
         String expectedResult = "Hello";
         pencil.write(paper, "Hello");
         assertEquals(expectedResult, paper.getText());
-        assertNotEquals("Goodbye", paper.getText());
     }
 
     @Test
@@ -44,7 +42,21 @@ public class PencilTests {
         pencil.write(paper, "My name is Alex");
         assertEquals(expectedResult, paper.getText());
     }
+    @Test
+    public void writeWillSkipUppercaseLetterAndContinueWriting(){
+        pencil.setDurability(1);
+        pencil.write(paper,"Hi");
+        String expectedResult = " i";
+        assertEquals(expectedResult, paper.getText());
+    }
 
+    @Test
+    public void writingSpecialCharsDoesNotImpactDurability(){
+        pencil.write(paper,",");
+        String expectedResult = ",";
+        assertEquals(expectedResult, paper.getText());
+        assertEquals(100, pencil.getDurability());
+    }
     @Test
     public void sharpenRestoresMaxDurability(){
         pencil.setDurability(10);
@@ -62,18 +74,29 @@ public class PencilTests {
 
     @Test
     public void editReplacesWhitespaceWithText(){
-    paper.setText("Hello my name is     ");
-    pencil.edit(paper,17,"Alex");
-    String expectedResult = "Hello my name is Alex";
+    paper.setText("An       a day keeps the doctor away");
+    pencil.edit(paper,3,"onion");
+    String expectedResult = "An onion a day keeps the doctor away";
     assertEquals(expectedResult, paper.getText());
     }
 
     @Test
     public void editReplacesTextWithAtSymbol(){
-    paper.setText("Hello my name is      Sotkovsky");
-    pencil.edit(paper,17,"Alexandra");
-    String expectedResult = "Hello my name is Alexa@@@@ovsky";
+    paper.setText("An       a day keeps the doctor away");
+    pencil.edit(paper,3,"artichoke");
+    String expectedResult = "An artich@k@ay keeps the doctor away";
     assertEquals(expectedResult, paper.getText());
     }
+
+    @Test
+    public void editAtEndOfStringContinuesWriting(){
+        paper.setText("Hello my name is     ");
+        pencil.edit(paper,17, "Alexandra");
+        String expectedResult = "Hello my name is Alexandra";
+        assertEquals(expectedResult, paper.getText());
+    }
+
+
+
 
 }

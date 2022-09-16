@@ -69,3 +69,18 @@ so that I can change my writing without starting over*
 Once text has been erased from the paper, a pencil may be instructed to write new text over the resulting white space.  For instance, if the paper contains the text "An&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a day keeps the doctor away", a pencil can can be instructed to write the word "onion" in the white space gap, so the text reads "An onion a day keeps the doctor away".
 
 Existing text on the page cannot 'shift' to make room for new text.  If the new text is longer than the allocated whitespace and thus would collide with other existing non-whitespace characters on the page, these character collisions should be represented by the "@" character.  For example, writing "artichoke" in the middle of "An&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a day keeps the doctor away" would result in "An artich@k@ay keeps the doctor away".
+
+## Some questions I would have for a product owner:
+1. Does writing punctuation or special characters cost pencil durability?
+        - As it stands, they do not
+2. Does erasing punctuation or special characters cost eraser durability?
+        - As it stands, they do not
+3. What is the desired behavior if you want to edit whitespace at the end of the paper's text?
+        - Right now I have it so that the pencil will continue to write the rest of the string normally
+4. What if a pencil with a durability of 1 is instructed to write "Hi"? Should it skip the "H" because it lacks durability and write the "i"?
+   Or should it not write the word at all?
+        - Currently, the write function will skip the "H" and continue to write out the "i"
+
+## Things I would want some guidance on from a tech lead
+1. The edit function feels big (lots of nested if/else's) and has some repetitive code with the write function.
+   Do you have any recommendations on how I could re-factor to encapsulate some of this functionality and make it more readable?
