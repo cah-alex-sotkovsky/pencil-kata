@@ -57,6 +57,13 @@ public class PencilTests {
         assertEquals(expectedResult, paper.getText());
         assertEquals(99, pencil.getDurability());
     }
+    @Test
+    public void writingNumberCharsReducesDurabilityByOne(){
+        pencil.write(paper,"1");
+        String expectedResult = "1";
+        assertEquals(expectedResult, paper.getText());
+        assertEquals(99, pencil.getDurability());
+    }
 
     @Test
     public void writingUppercaseCharsReducesDurabilityByTwo(){
