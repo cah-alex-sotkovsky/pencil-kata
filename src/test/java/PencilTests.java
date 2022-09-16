@@ -123,6 +123,13 @@ public class PencilTests {
         assertEquals(99, pencil.getDurability());
     }
 
+    @Test
+    public void editingSpecialCharReducesDurabilityByOne(){
+        paper.setText("Special character is:  ");
+        pencil.edit(paper, 21, "?");
+        assertEquals(99, pencil.getDurability());
+    }
+
 
 
 
