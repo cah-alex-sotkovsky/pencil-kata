@@ -60,4 +60,12 @@ public class PencilTests {
         assertEquals(10, pencil.getDurability());
     }
 
+    @Test
+    public void editReplacesWhitespaceWithText(){
+    paper.setText("Hello my name is     ");
+    pencil.edit(paper,17,"Alex");
+    String expectedResult = "Hello my name is Alex";
+    assertEquals(expectedResult, paper.getText());
+    }
+
 }

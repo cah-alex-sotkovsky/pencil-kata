@@ -53,6 +53,24 @@ public class Pencil {
             length -= 1;
         }
     }
+
+    public void edit(Paper paper, int startingIndex, String replacementText) {
+        char[] paperTextChars = paper.getText().toCharArray();
+        char[] replacementTextChars = replacementText.toCharArray();
+        int counter = 0;
+
+        for (int i = startingIndex; i < startingIndex + replacementText.length(); i++){
+            if (Character.isWhitespace(paperTextChars[i])){
+                paperTextChars[i] = replacementTextChars[counter];
+                counter ++;
+            }
+            else {
+                paperTextChars[i] = '@';
+                counter ++;
+            }
+        }
+    paper.setText(String.valueOf(paperTextChars));
+    }
 }
 
 
