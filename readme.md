@@ -74,7 +74,7 @@ Existing text on the page cannot 'shift' to make room for new text.  If the new 
 1. Does writing punctuation or special characters cost pencil durability?
         - As it stands, they do not
 2. Does erasing punctuation or special characters cost eraser durability?
-        - As it stands, they do not
+        - As it stands, special chars reduce eraser durability by one
 3. What is the desired behavior if you want to edit whitespace at the end of the paper's text?
         - Right now I have it so that the pencil will continue to write the rest of the string normally
 4. What if a pencil with a durability of 1 is instructed to write "Hi"? Should it skip the "H" because it lacks durability and write the "i"?
