@@ -6,15 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PaperTests {
 
-   private Paper paper;
+    private Paper paper;
 
-   @BeforeEach
-    public void setUp(){
-       paper = new Paper();
-   }
-
-
-
+    @BeforeEach
+    public void setUp() {
+        paper = new Paper();
+    }
 
 
 }

@@ -35,19 +35,22 @@ public class Pencil {
             String currentText = paper.getText();
 
             if (isUpperCase(character)) {
-                if (durability >= 2){
-                paper.setText(currentText + Character.toString(character));
-                durability -= 2;}
-                else {paper.setText(currentText + " ");}
+                if (durability >= 2) {
+                    paper.setText(currentText + Character.toString(character));
+                    durability -= 2;
+                } else {
+                    paper.setText(currentText + " ");
+                }
             } else if (isLowerCase(character)) {
-                if (durability >= 1){
-                paper.setText(currentText + Character.toString(character));
-                durability -= 1;}
-                else {paper.setText(currentText + " ");}
-            } else if (Character.isWhitespace(character)){
+                if (durability >= 1) {
+                    paper.setText(currentText + Character.toString(character));
+                    durability -= 1;
+                } else {
+                    paper.setText(currentText + " ");
+                }
+            } else if (Character.isWhitespace(character)) {
                 paper.setText(currentText + " ");
-            }
-            else {
+            } else {
                 paper.setText(currentText + Character.toString(character));
                 durability -= 1;
             }
@@ -86,17 +89,15 @@ public class Pencil {
                         paperTextChars[i] = replacementTextChars[counter];
                         durability -= 1;
                         counter++;
-                    } else if (Character.isWhitespace(replacementTextChars[counter])){
+                    } else if (Character.isWhitespace(replacementTextChars[counter])) {
                         paperTextChars[i] = replacementTextChars[counter];
-                        counter ++;
-                    }
-
-                    else {
+                        counter++;
+                    } else {
                         paperTextChars[i] = replacementTextChars[counter];
                         durability -= 1;
                         counter++;
                     }
-                    // If not whitespace, pencil will write @ symbol
+                    // If not whitespace, pencil will write @ symbol and reduce durability by one
                 } else {
                     paperTextChars[i] = '@';
                     durability -= 1;
@@ -106,7 +107,7 @@ public class Pencil {
                 //If replacementText exceeds length of existing text on paper, we will catch the index out of bounds exception and write the rest of the replacement text normally
             } catch (ArrayIndexOutOfBoundsException e) {
                 write(paper, Character.toString(replacementTextChars[counter]));
-                counter ++;
+                counter++;
             }
         }
     }
