@@ -64,7 +64,11 @@ public class PencilTests {
             assertEquals(98, pencil.getDurability());
     }
 
-
+    @Test
+    public void writingLowercaseCharsReducesDurabilityByOne(){
+        pencil.write(paper, "a");
+        assertEquals(99, pencil.getDurability());
+    }
 
     @Test
     public void sharpenRestoresMaxDurability(){
