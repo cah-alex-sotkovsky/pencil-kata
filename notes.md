@@ -1,9 +1,12 @@
 # Feedback
 
-Good job on this.
+Good job on this. It may not look at it from this wall of text, but I think you did _really_ well on this kata. You nailed the intentionality that these katas should be done in, and that "how I do" is even more important than the output of this specific kata. You have the ladder and so you can keep climbing.
 
-Good job
-how to read this (general comments, commits, suggested changes)
+Your code is all logical, straightforward, and commented at a helpful, without being too noisy level. Your data modelling and 'architecture' is logically organized. Your methods are a bit long, but again nothing is _clever_, which is great.
+
+This feedback is split up into a number of parts, and it's not necessarily meant to be read sequentially. General comments are my broad stroke remarks, the commits section are my thoughts (on individual commits) as I went through your history and checked how you did 'following the rules'. Finally, I have comments, code changes, and likely PR comments that are all line by line questions and suggestions.
+
+It's always hard to take feedback on something you've worked hard on, and some of this can seem pedantic. That said, I'm convinced spending this time "sharpens tools" that you'll use throughout a bunch of other stuff we'll do, and helps think about our problems in a new way etc. Thanks for putting this effort in!
 
 ## General Comments
 
@@ -16,6 +19,8 @@ It's possible you could write even less comments, but in general I think you did
 For a while it looks like you weren't formatting (indents etc) but good job catching that and applying those formats.
 
 I love your questions section in the readme. The advice we always give when someone is doing a kata is "where anything is unclear, choose the simplest requirement". 
+
+Two really challenging concepts in software are Levels of Abstraction and Levels of Detail. Let's chat about what Levels of Detail are (LoD). You want your code to read like a newspaper. Don't bury the lead! The public functions / important stuff is at the top (headlines) and the details are something you click into (are lower in the file). When extracting methods, you want to keep all the work in a method at the 'same level of abstraction'. This let's your head stay in just once place a time, drilling down to the next level of abstraction as needed. This is really challenging to do well! Let's talk about this a bit with the write and edit methods. :) 
 
 ## Commits
 
