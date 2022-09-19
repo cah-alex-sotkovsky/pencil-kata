@@ -2,7 +2,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
+//cmd + shift + O for me organizes imports. You can always tell an import isn't needed if it's grayed out.
 
 public class EraserTests {
 
