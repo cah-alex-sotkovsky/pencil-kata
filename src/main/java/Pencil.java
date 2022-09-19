@@ -3,23 +3,23 @@ import static java.lang.Character.*;
 public class Pencil {
 
     private int durability;
-    private int maxDurability;
+    private final int maxDurability; //Highlights are always good to watch for. Here it told me this could be a const (final).
     private int length;
 
     public int getDurability() {
         return durability;
     }
 
+    //Should this be public? Is it only used in tests? If so, is there another way we could create the scenario we want without this being public? (Can we initialize the pencil with the given durability instead?)
     public void setDurability(int durability) {
         this.durability = durability;
     }
 
+    //How could we set the length to a certain amount without exposing this as a public interface?
     public void setLength(int length) {
         this.length = length;
     }
 
-
-    // Constructor where pencil durability, maxDurability and length is specified
     public Pencil(int durability, int maxDurability, int length) {
         this.durability = durability;
         this.maxDurability = maxDurability;
@@ -27,34 +27,31 @@ public class Pencil {
     }
 
     public void write(Paper paper, String textToWrite) {
+        for (char character : textToWrite.toCharArray()) {
+            writeCharacter(paper, character);
+        }
+    }
 
-        char[] arrayOfCharacters = textToWrite.toCharArray();
+    private void writeCharacter(Paper paper, char character) {
+        String currentText = paper.getText();
+        if (isUpperCase(character)) {
+            writeCharacter(2, paper, currentText, character);
+        } else if (isLowerCase(character)) {
+            writeCharacter(1, paper, currentText, character);
+        } else if (Character.isWhitespace(character)) {
+            paper.setText(currentText + " ");
+        } else {
+            paper.setText(currentText + character);
+            durability -= 1;
+        }
+    }
 
-        for (char character : arrayOfCharacters) {
-
-            String currentText = paper.getText();
-
-            if (isUpperCase(character)) {
-                if (durability >= 2) {
-                    paper.setText(currentText + Character.toString(character));
-                    durability -= 2;
-                } else {
-                    paper.setText(currentText + " ");
-                }
-            } else if (isLowerCase(character)) {
-                if (durability >= 1) {
-                    paper.setText(currentText + Character.toString(character));
-                    durability -= 1;
-                } else {
-                    paper.setText(currentText + " ");
-                }
-            } else if (Character.isWhitespace(character)) {
-                paper.setText(currentText + " ");
-            } else {
-                paper.setText(currentText + Character.toString(character));
-                durability -= 1;
-            }
-
+    private void writeCharacter(int cost, Paper paper, String currentText, char character) {
+        if (durability >= cost) {
+            paper.setText(currentText + character);
+            durability -= cost;
+        } else {
+            paper.setText(currentText + " ");
         }
     }
 
